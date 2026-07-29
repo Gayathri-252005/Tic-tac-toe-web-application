@@ -1,0 +1,147 @@
+:root {
+  --bg: #f0f7f4;
+  --card: #ffffff;
+  --green-dark: #2d6a4f;
+  --green-mid: #40916c;
+  --green-light: #95d5b2;
+  --x-color: #2d6a4f;
+  --o-color: #b07d62;
+  --border: #d8f3dc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--green-light), var(--bg));
+  color: var(--green-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(45, 106, 79, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  border: 2px solid var(--border);
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  color: var(--green-dark);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.8;
+}
+
+.mode-select {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.mode-btn {
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--green-mid);
+  border-radius: 8px;
+  background: white;
+  color: var(--green-mid);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mode-btn.active,.mode-btn:hover {
+  background: var(--green-mid);
+  color: white;
+}
+
+.status {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding: 0.8rem;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cell:hover {
+  background: white;
+  transform: scale(1.05);
+  border-color: var(--green-light);
+}
+
+.cell.x { color: var(--x-color); }
+.cell.o { color: var(--o-color); }
+.cell.disabled { cursor: not-allowed; pointer-events: none; }
+
+.btn {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--green-dark);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--green-mid);
+}
+
+.winning-cell {
+  background: #d8f3dc!important;
+  border-color: var(--green-mid);
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+ 0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+ 100% { transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+.cell { width: 80px; height: 80px; font-size: 2.5rem; }
+}
